@@ -1,0 +1,196 @@
+
+
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Meine Website</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;                                                /* Schriftart */
+      background: linear-gradient(135deg, #111111, #1e1e1e, #00334d);          /* Hintergrund mit Farbverlauf */
+      color: white;                                                                /* Textfarbe */
+      text-align: center;                                                            /* Text zentrieren */
+      margin: 0;                                                                     /* Kein Außenabstand */
+      padding: 0;                                                                    /* Kein Innenabstand */
+    }
+
+    .container {
+      min-height: 100vh;                                                             /* Volle Höhe des Bildschirms */
+      display: flex;                                                                 /* Flexbox für Zentrierung */
+      justify-content: center;                                                       /* Vertikal zentrieren */
+      align-items: center;                                                           /* Horizontal zentrieren */
+    }
+
+    .card {
+      background-color: rgba(0, 0, 0, 0.45);                                       /* Dunkler halbtransparenter Hintergrund */
+      padding: 40px;                                                                 /* Innenabstand */
+      border-radius: 25px;                                                           /* Abgerundete Ecken */
+      box-shadow: 0 0 30px rgba(0, 191, 255, 0.35);                                /* Leuchtender Schatten */
+      max-width: 650px;                                                              /* Maximale Breite der Karte */
+      width: 90%;                                                                    /* Breite der Karte */
+      border: 1px solid rgba(0, 191, 255, 0.4);                                    /* Dünner blauer Rand */
+    }
+
+    img { 
+      width: 130px;                                                                   /* Breite des Bildes */
+      height: 130px;                                                                  /* Höhe des Bildes */
+      object-fit: cover;                                                              /* Bild passend zuschneiden */
+      border-radius: 50%;                                                             /* Bild rund machen */
+      border: 4px solid #00bfff;                                                   /* Blauer Rahmen */
+      margin-bottom: 25px;                                                           /*  Abstand nach unten */
+    }  
+
+    h1 {
+      color: #00bfff;
+      font-size: 50px;
+      margin: 10px 0 20px 0;
+    }
+
+    .age {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 25px;
+      color: white;
+    }
+
+    p {
+      font-size: 20px;
+      line-height: 1.6;
+      margin: 12px 0;
+      color: white;
+    }
+
+    .text-bereich {
+      margin-bottom: 30px;                                                      /* Abstand zu den Boxen */
+    }
+
+    .info-boxen {
+      display: flex;                                                            /* Flexbox für die Boxen */
+      justify-content: center;                                                  /* Boxen horizontal zentrieren */
+      gap: 15px;                                                                /* Abstand zwischen den Boxen */
+      margin-top: 30px;                                                         /* Abstand nach oben */
+      flex-wrap: wrap;                                                          /* Boxen umbrechen bei wenig Platz */
+    }
+
+    .box {
+      background-color: rgba(0, 191, 255, 0.18);
+      border: 1px solid #00bfff;
+      padding: 15px 20px;
+      border-radius: 15px;
+      min-width: 120px;
+      box-shadow: 0 0 10px rgba(0, 191, 255, 0.25);
+    }
+
+    .box h3 {
+      margin: 0;
+      color: #00bfff;
+      font-size: 18px;
+    }
+
+    .box p {
+      margin: 5px 0 0;
+      font-size: 16px;
+      color: white;
+    }
+
+    .button-unten-rechts {
+      position: fixed;
+      right: 30px;
+      bottom: 30px;
+
+      background-color: #00bfff;
+      color: white;
+      text-decoration: none;
+
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+    }
+
+    .button-unten-rechts:hover {
+      background-color: #008fcc;
+      transform: scale(1.05);
+    
+    }
+
+    .button-unten-links {
+  position: fixed;
+  left: 30px;
+  bottom: 30px;
+
+  background-color: transparent;
+  color: white;
+  text-decoration: none;
+
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 12px;
+  border: 2px solid #00bfff;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.35);
+  transition: 0.3s;
+}
+
+.button-unten-links:hover {
+  background-color: #00bfff;
+  color: white;
+  transform: scale(1.05);
+}
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="card">
+
+      <img src="IMG_20220913_140819.jpg" alt="Mein Bild">
+
+      <h1>Shtelle Maxim</h1>
+
+      <div class="text-bereich">
+        <p class="age">20 years old</p>
+
+        <p>I was born in Germany and have lived here since birth.</p>
+        <p>I am currently serving my country as a soldier.</p>
+      </div>
+
+      <div class="Info-boxen"></div>"
+      <div class="box"> 
+      <h3>Hobbys</h3>
+      <p>Gaming, Sport, Friends</p>
+      </div>
+
+      <div class="info-boxen">
+        <div class="box">
+          <h3>Country</h3>
+          <p>Germany</p>
+        </div>
+
+        <div class="box">
+          <h3>Age</h3>
+          <p>20</p>
+        </div>
+
+        <div class="box">
+          <h3>Job</h3>
+          <p>Soldier</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <a href="Home.html" class="button-unten-links">Home</a>
+  <a href="Hobbys.html" class="button-unten-rechts">Next Page</a>
+
+</body>
+</html>
+
+
