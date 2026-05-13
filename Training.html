@@ -1,0 +1,286 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Training at WIRmachenDRUCK</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;                                     /* Schriftart */
+      background: linear-gradient(120deg, #ffffff, #eaf7ff);          /* Heller Hintergrund */
+      color: #102030;                                                   /* Dunkle Textfarbe */
+      margin: 0;                                                          /* Kein Außenabstand */
+      padding: 0;                                                         /* Kein Innenabstand */
+    }
+
+    .container {                                                          /* Zentrierter Container für den Inhalt */
+      min-height: 100vh;                                                  /* Volle Bildschirmhöhe */
+      display: flex;                                                      /* Flexbox */
+      justify-content: center;                                            /* Inhalt mittig */
+      align-items: center;                                                /* Inhalt mittig */
+      padding: 50px 40px 100px 40px;                                      /* Abstand */
+      box-sizing: border-box;                                             /* Padding zählt zur Breite */
+    }
+
+    .training-card {                                                      /* Karte für den Inhalt */
+      max-width: 1100px;                                                  /* Maximale Breite */
+      width: 100%;                                                        /* Volle Breite */
+      display: grid;                                                      /* Grid Layout */
+      grid-template-columns: 1fr 1.4fr;                                   /* Links kleiner, rechts größer */
+      background-color: white;                                          /* Weiße Karte */
+      border-radius: 30px;                                                /* Runde Ecken */
+      overflow: hidden;                                                   /* Ecken sauber abschneiden */
+      box-shadow: 0 20px 50px rgba(0, 80, 130, 0.18);                   /* Schatten */
+    }
+
+    .linke-seite {                                                        /* Linke Seite mit blauem Hintergrund */
+      background: linear-gradient(160deg, #00bfff, #005f8f);          /* Blauer Bereich */
+      color: white;
+      padding: 50px 40px;
+      display: flex;                                                      /* Flexbox */
+      flex-direction: column;                                             /* Inhalt vertikal anordnen */
+      justify-content: center;                                            /* Vertikal zentrieren */
+    }
+
+    .kleiner-text {                                                       /* Kleiner Text über der Überschrift */
+      font-size: 16px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+
+    h1 {                                                                  /* Hauptüberschrift auf der linken Seite */
+      font-size: 52px;
+      line-height: 1.1;
+      margin: 0 0 25px 0;
+    }
+
+    .linke-seite p {                                                      /* Text auf der linken Seite */
+      font-size: 19px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .rechte-seite {                                                       /* Rechte Seite mit weißem Hintergrund */ 
+      padding: 50px 45px;
+    }
+
+    .rechte-seite h2 {                                                    /* Überschrift auf der rechten Seite */
+      color: #00a8e8;
+      font-size: 32px;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    .intro {                                                             /* Einleitungstext auf der rechten Seite */
+      font-size: 19px;
+      line-height: 1.7;
+      color: #263849;
+      margin-bottom: 30px;
+    }
+
+    .punkte {                                                           /* Bereich für die Punkte auf der rechten Seite */
+      display: grid;                                                    /* Grid Layout */
+      gap: 18px;                                                        /* Abstand zwischen den Punkten */
+      margin-top: 25px;
+    }
+
+    .punkt {                                                            /* Einzelner Punkt */
+      background-color: #f1f9ff;
+      border-left: 5px solid #00bfff;
+      padding: 18px 20px;
+      border-radius: 15px;
+    }
+
+    .punkt h3 {                                                         /* Überschrift in den Punkten */
+      margin: 0 0 8px 0;
+      color: #005f8f;
+      font-size: 21px;
+    }
+
+    .punkt p {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.6;
+      color: #304050;
+    }
+
+    .abschluss {                                                        /* Abschlusstext auf der rechten Seite */
+      margin-top: 30px;
+      padding: 22px;
+      background-color: #102030;
+      color: white;
+      border-radius: 18px;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .button-unten-links {
+      position: fixed;
+      left: 30px;
+      bottom: 30px;
+
+      background-color: transparent;
+      color: #005f8f;
+      text-decoration: none;
+
+      padding: 14px 28px;
+      font-size: 18px;
+      border-radius: 30px;
+      border: 2px solid #00bfff;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+
+    .button-unten-links:hover {
+      background-color: #00bfff;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .button-unten-rechts {
+      position: fixed;
+      right: 30px;
+      bottom: 30px;
+
+      background-color: #00bfff;
+      color: white;
+      text-decoration: none;
+
+      padding: 14px 28px;
+      font-size: 18px;
+      border-radius: 30px;
+      border: 2px solid #00bfff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 18px rgba(0, 191, 255, 0.45);
+    }
+
+    .button-unten-rechts:hover {
+      background-color: #005f8f;
+      border-color: #005f8f;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 850px) {                                /* Ab hier wird die Seite für kleinere Bildschirme angepasst */
+       .training-card {
+        grid-template-columns: 1fr;                            /* Untereinander auf kleineren Bildschirmen */
+      }
+      .training-card {
+        grid-template-columns: 1fr;                            /* Untereinander auf kleineren Bildschirmen */
+      }
+
+      h1 {                                                     /* Hauptüberschrift auf der linken Seite wird kleiner */
+        font-size: 42px;
+      }
+
+      .linke-seite,                                           /* Linke und rechte Seite bekommen mehr Innenabstand, damit es nicht so gedrängt wirkt */
+      .rechte-seite {                                         
+        padding: 35px 25px;
+      }
+    }
+
+    @media (max-width: 600px) {                                /* Ab hier wird die Seite für Handys angepasst */
+      .container {
+        padding: 30px 20px 100px 20px;
+      }
+
+      .button-unten-links {                                   /* Buttons bekommen auf Handys etwas weniger Abstand zum Rand, damit sie nicht zu weit außen sind */
+        left: 20px;
+        bottom: 20px;
+      }
+
+      .button-unten-rechts {                                  
+        right: 20px;
+        bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="training-card">
+
+      <div class="linke-seite">
+        <p class="kleiner-text">Application</p>
+        <h1>Why I am the right trainee</h1>
+        <p>
+          I want to start my professional future in IT with motivation,
+          discipline and the willingness to learn every day.
+        </p>
+      </div>
+
+      <div class="rechte-seite">
+
+        <h2>Training at WIRmachenDRUCK GmbH</h2>
+
+        <p class="intro">
+          I believe I would be a strong candidate for a traineeship at WIRmachenDRUCK GmbH
+          because I already bring practical IT experience, discipline and a strong interest
+          in Coding. Through my internships, I was able to gain first experience
+          in IT support, hardware management, Linux servers and technical problem solving.
+        </p>
+
+        <div class="punkte">
+
+          <div class="punkt">
+            <h3>Practical IT experience</h3>
+            <p>
+              During my internships, I worked with hardware, user support, asset management
+              and the configuration of a Linux web server with Apache.
+            </p>
+          </div>
+
+          <div class="punkt">
+            <h3>Discipline and responsibility</h3>
+            <p>
+              My time in the Bundeswehr has strengthened my discipline, reliability and ability
+              to stay focused even under pressure.
+            </p>
+          </div>
+
+          <div class="punkt">
+            <h3>Teamwork</h3>
+            <p>
+              I am used to working in a team, communicating clearly and supporting others
+              to reach a common goal.
+            </p>
+          </div>
+
+          <div class="punkt">
+            <h3>Motivation to learn</h3>
+            <p>
+              I am motivated to improve my technical skills and learn how professional IT systems
+              are planned, maintained and supported in a real company environment.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="abschluss">
+          I expect a traineeship at WIRmachenDRUCK GmbH to give me the opportunity to grow
+          professionally, learn from experienced colleagues and become a reliable part of the IT team.
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <a href="CV.html" class="button-unten-links">Back</a>
+  <a href="Home.html" class="button-unten-rechts">Home</a>
+
+</body>
+</html>
