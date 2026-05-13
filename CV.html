@@ -1,0 +1,372 @@
+
+
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>CV - Lebenslauf</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;                                                          /* Schriftart */
+      background: linear-gradient(135deg, #0f172a, #111827, #020617);                   /* Dunkler Hintergrund */
+      color: white;                                                                         /* Textfarbe */
+      margin: 0;                                                                              /* Kein Außenabstand */
+      padding: 0;                                                                             /* Kein Innenabstand */
+    } 
+
+    .container {
+      min-height: 100vh;                                      /* Volle Bildschirmhöhe */
+      display: flex;                                          /* Flexbox */
+      justify-content: center;                                /* Inhalt mittig */
+      align-items: center;                                    /* Inhalt mittig */
+      padding: 50px 40px 90px 40px;                           /* Abstand, unten mehr wegen Buttons */
+      box-sizing: border-box;
+    }
+
+    .cv-card {
+      max-width: 1100px;                                      /* Maximale Breite */
+      width: 100%;                                            /* Volle Breite */
+      background: rgba(255, 255, 255, 0.06);                  /* Glas-Effekt */
+      border: 1px solid rgba(0, 191, 255, 0.25);              /* Blauer Rand */
+      border-radius: 28px;                                    /* Runde Ecken */
+      padding: 45px;                                          /* Innenabstand */
+      box-shadow: 0 0 35px rgba(0, 191, 255, 0.25);           /* Leuchten */
+    }
+
+    .kopf {
+      display: flex;                                          /* Titel und Info nebeneinander */
+      justify-content: space-between;                         /* Abstand dazwischen */
+      align-items: flex-start;                                /* Oben ausrichten */
+      gap: 30px;                                              /* Abstand */
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);     /* Linie unten */
+      padding-bottom: 30px;                                   /* Abstand zur Linie */
+      margin-bottom: 35px;                                    /* Abstand nach unten */
+    }
+
+    .kopf-links h1 {                                          
+      color: #00bfff;
+      font-size: 60px;
+      margin: 0;
+    }
+
+    .kopf-links p {                                          /* Untertitel */
+      color: #d1d5db;
+      font-size: 20px;
+      margin-top: 10px;
+    }
+
+    .kontakt-box {                                               
+      background: rgba(0, 191, 255, 0.12);
+      border: 1px solid rgba(0, 191, 255, 0.35);
+      border-radius: 18px;
+      padding: 20px;
+      min-width: 230px;
+    }
+
+    .kontakt-box p {                                        /* Kontaktinformationen */
+      margin: 8px 0;
+      color: #e5e7eb;
+      font-size: 17px;
+    }
+
+    .bereich {                                                /* Bereiche wie Work Experience, Education */
+      margin-bottom: 38px;                                    /* Abstand zwischen Bereichen */
+    }
+
+    .bereich h2 {
+      color: #00bfff;
+      font-size: 30px;
+      margin-bottom: 20px;
+      border-left: 4px solid #00bfff;
+      padding-left: 12px;
+    }
+
+    .eintrag {                                                  /* Einträge in den Bereichen */
+      background: rgba(255, 255, 255, 0.05);                  /* Box-Hintergrund */
+      border: 1px solid rgba(255, 255, 255, 0.12);            /* Dezenter Rand */
+      border-radius: 20px;                                    /* Runde Ecken */
+      padding: 25px;                                          /* Innenabstand */
+      margin-bottom: 22px;                                    /* Abstand nach unten */
+      transition: 0.3s;
+    }
+
+    .eintrag:hover {
+      transform: translateY(-5px);
+      border-color: #00bfff;
+      box-shadow: 0 0 20px rgba(0, 191, 255, 0.25);
+    }
+
+    .eintrag-kopf {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .eintrag h3 {
+      color: white;
+      font-size: 24px;
+      margin: 0;
+    }
+
+    .position {
+      color: #d1d5db;
+      font-size: 18px;
+      margin: 6px 0 0 0;
+      font-weight: bold;
+    }
+
+    .zeit {                                                 /* Zeitangaben rechts oben */
+      color: #00bfff;
+      font-weight: bold;
+      white-space: nowrap;
+      font-size: 17px;
+    }
+
+    ul {                                                    /* Aufzählungen */
+      margin: 15px 0 0 0;
+      padding-left: 22px;
+    }
+
+    li {                                                    /* Aufzählungspunkte */
+      color: #e5e7eb;
+      font-size: 17px;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .schule-info {                                          /* Informationen zu Schulen */
+      color: #e5e7eb;
+      font-size: 17px;
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+
+    .hinweis-weiter {                                      /* Hinweis auf nächste Seite */
+      background: rgba(0, 191, 255, 0.12);
+      border-left: 4px solid #00bfff;
+      border-radius: 15px;
+      padding: 20px;
+      color: #e5e7eb;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .button-unten-links {
+      position: fixed;
+      left: 30px;
+      bottom: 30px;
+
+      background-color: transparent;
+      color: white;
+      text-decoration: none;
+
+      padding: 14px 28px;
+      font-size: 18px;
+      border-radius: 30px;
+      border: 2px solid #00bfff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .button-unten-links:hover {
+      background-color: #00bfff;
+      color: #020617;
+      transform: scale(1.05);
+    }
+
+    .button-unten-rechts {
+      position: fixed;
+      right: 30px;
+      bottom: 30px;
+
+      background-color: #00bfff;
+      color: #020617;
+      text-decoration: none;
+
+      padding: 14px 28px;
+      font-size: 18px;
+      border-radius: 30px;
+      border: 2px solid #00bfff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 18px rgba(0, 191, 255, 0.5);
+    }
+
+    .button-unten-rechts:hover {
+      background-color: white;
+      border-color: white;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 800px) {                                      /* Ab hier wird die Seite für kleinere Bildschirme angepasst */
+      .kopf {
+        flex-direction: column;
+        text-align: left;
+      }
+
+      .kopf-links h1 {                                               /* Titel etwas kleiner auf Tablets */
+        font-size: 45px;
+      }
+
+      .eintrag-kopf {                                             /* Eintrag-Kopf wird auf kleineren Bildschirmen vertikal angeordnet */
+        flex-direction: column;
+      }
+
+      .zeit {                                                      /* Zeitangaben werden auf kleineren Bildschirmen normal umgebrochen */
+        white-space: normal;
+      }
+
+      .cv-card {                                                   /* Auf kleineren Bildschirmen etwas mehr Innenabstand, damit es nicht so gedrängt wirkt */
+        padding: 25px;
+      }
+    }
+
+    @media (max-width: 600px) {                                    /* Ab hier wird die Seite für Handys angepasst */
+      .container {
+        padding: 30px 20px 100px 20px;
+      }
+
+      .button-unten-links {
+        left: 20px;
+        bottom: 20px;
+      }
+
+      .button-unten-rechts {
+        right: 20px;
+        bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="cv-card">
+
+      <div class="kopf">
+        <div class="kopf-links">
+          <h1>Curriculum Vitae</h1>
+          <p>Professional experience, education and practical IT experience.</p>
+        </div>
+
+        <div class="kontakt-box">
+          <p><strong>Name:</strong> Shtelle Maxim</p>
+          <p><strong>Country:</strong> Germany</p>
+          <p><strong>Status:</strong> Soldier</p>
+        </div>
+      </div>
+
+      <div class="bereich">
+        <h2>Work Experience</h2>
+
+        <div class="eintrag">
+          <div class="eintrag-kopf">
+            <div>
+              <h3>Bundeswehr</h3>
+              <p class="position">Soldat auf Zeit bei der Bundeswehr</p>
+            </div>
+            <span class="zeit">07.2024 - Today</span>
+          </div>
+
+          <ul>
+            <li>Fallschirmjäger mit starkem Fokus auf Teamarbeit und strategische Einsätze.</li>
+            <li>Umfassende Kenntnisse in der Fallschirmspringerausbildung und taktischen Geländevernichtung.</li>
+            <li>Bereitschaft, unter Druck zu arbeiten und schnell auf sich verändernde Situationen zu reagieren.</li>
+            <li>Körperliche Fitness und Disziplin, unterstützt durch rigoroses Ausbildungstraining.</li>
+            <li>Gute Kommunikationsfähigkeiten zur effektiven Zusammenarbeit mit verschiedenen Einheitsteilen.</li>
+            <li>Teamarbeit und gegenseitige Unterstützung, um gemeinsame Ziele zu erreichen.</li>
+          </ul>
+        </div>
+
+        <div class="eintrag">
+          <div class="eintrag-kopf">
+            <div>
+              <h3>LOBA GmbH & Co. KG, Ditzingen</h3>
+              <p class="position">Praktikum Fachinformatiker Systemintegration</p>
+            </div>
+            <span class="zeit">02.2024 - 02.2024</span>
+          </div>
+
+          <ul>
+            <li>Konfiguration eines Webservers unter Linux Ubuntu mit Apache.</li>
+            <li>Neuverkabelung von Arbeitsplätzen und Einrichtung der IT-Infrastruktur.</li>
+            <li>Fehlerdiagnose und Reparatur von Hardware.</li>
+          </ul>
+        </div>
+
+        <div class="eintrag">
+          <div class="eintrag-kopf">
+            <div>
+              <h3>SV Informatik GmbH, Stuttgart</h3>
+              <p class="position">Praktikum Fachinformatiker Systemintegration</p>
+            </div>
+            <span class="zeit">10.2023 - 11.2023</span>
+          </div>
+
+          <ul>                                                                                      
+            <li>Erfahrungen im IT-Support, First- und Second-Level, gesammelt.</li>
+            <li>Hardwareausgabe und Rücknahme.</li>
+            <li>Installation von Surface-Geräten.</li>
+            <li>Lagerverwaltung der Assets.</li>
+            <li>Demontage und Montage von Hardwarekomponenten.</li>
+            <li>Anwenderbetreuung und technische Beratung.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bereich">
+        <h2>Education</h2>
+
+        <div class="eintrag">
+          <div class="eintrag-kopf">
+            <div>
+              <h3>Technisches Berufskolleg I</h3>
+              <p class="position">Steinbeisschule Stuttgart</p>
+            </div>
+          </div>
+
+          <p class="schule-info">
+            Steinbeisstraße 5, 70191 Stuttgart
+          </p>
+        </div>
+
+        <div class="eintrag">
+          <div class="eintrag-kopf">
+            <div>
+              <h3>Realschulabschluss</h3>
+              <p class="position">Brunnen Realschule</p>
+            </div>
+            <span class="zeit">09.2016 - 07.2022</span>
+          </div>
+
+          <p class="schule-info">
+            Wilhelmstraße 32, 70372 Stuttgart
+          </p>
+        </div>
+      </div>
+
+      <div class="bereich">
+        <h2>Next Step</h2>
+
+        <div class="hinweis-weiter">
+          The next page explains what I expect from a traineeship at your company and why I am motivated to continue in the IT field.
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <a href="Hobbys.html" class="button-unten-links">Back</a>
+  <a href="Training.html" class="button-unten-rechts">Next Page</a>
+
+</body>
+</html>
+
+
