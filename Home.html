@@ -1,0 +1,179 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Website Übersicht</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;                         /* Schriftart */
+      background: linear-gradient(135deg, #020617, #0f172a, #00334d); /* Dunkler Hintergrund */
+      color: white;                                           /* Textfarbe */
+      margin: 0;                                              /* Kein Außenabstand */
+      padding: 0;                                             /* Kein Innenabstand */
+    }
+
+    .container {
+      min-height: 100vh;                                      /* Volle Bildschirmhöhe */
+      display: flex;                                          /* Flexbox */
+      justify-content: center;                                /* Horizontal mittig */
+      align-items: center;                                    /* Vertikal mittig */
+      padding: 40px;                                          /* Abstand */
+      box-sizing: border-box;
+    }
+
+    .home-card {
+      max-width: 950px;                                       /* Maximale Breite */
+      width: 100%;                                            /* Volle Breite */
+      background: rgba(255, 255, 255, 0.07);                  /* Glas-Effekt */
+      border: 1px solid rgba(0, 191, 255, 0.3);               /* Blauer Rand */
+      border-radius: 30px;                                    /* Runde Ecken */
+      padding: 45px;                                          /* Innenabstand */
+      box-shadow: 0 0 35px rgba(0, 191, 255, 0.25);           /* Leuchtender Schatten */
+      text-align: center;                                     /* Text zentriert */
+    }
+
+    h1 {
+      color: #00bfff;
+      font-size: 55px;
+      margin: 0 0 15px 0;
+    }
+
+    .untertitel {
+      color: #d1d5db;
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
+
+    .seiten-grid {
+      display: grid;                                           /* Grid für Karten */
+      grid-template-columns: repeat(4, 1fr);                   /* 4 Spalten */
+      gap: 20px;                                               /* Abstand */
+    }
+
+    .seiten-link {
+      background: rgba(0, 191, 255, 0.12);                   /* Karten-Hintergrund */
+      border: 1px solid rgba(0, 191, 255, 0.45);             /* Rand */
+      border-radius: 22px;                                     /* Runde Ecken */
+      padding: 30px 20px;                                      /* Innenabstand */
+      color: white;                                          /* Textfarbe */
+      text-decoration: none;                                   /* Kein Unterstrich */
+      transition: 0.3s;                                        /* Hover weich */
+    }
+
+    .seiten-link:hover {
+      transform: translateY(-8px);                             /* Karte bewegt sich hoch */
+      background: rgba(0, 191, 255, 0.25); 
+      box-shadow: 0 0 25px rgba(0, 191, 255, 0.45);
+    }
+
+    .icon {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .seiten-link h2 {
+      color: #00bfff;
+      font-size: 24px;
+      margin: 0 0 10px 0;
+    }
+
+    .seiten-link p {
+      color: #e5e7eb;
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+.ki-hinweis {
+  margin-top: 35px;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 191, 255, 0.35);
+  border-radius: 15px;
+  color: #d1d5db;
+  font-size: 15px;
+  line-height: 1.5;
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.15);
+}
+
+.ki-hinweis strong {
+  color: #00bfff;
+}
+
+    @media (max-width: 900px) {                               /* Ab hier wird die Seite für kleinere Bildschirme angepasst */
+    
+      .seiten-grid {
+        grid-template-columns: repeat(2, 1fr);                 /* 2 Spalten auf Tablet */
+      }
+    }
+
+    @media (max-width: 600px) {                                /* Ab hier wird die Seite für Handys angepasst */
+      .seiten-grid {
+        grid-template-columns: 1fr;                            /* 1 Spalte auf Handy */
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      .home-card {                                            /* Auf Handys etwas mehr Innenabstand, damit es nicht so gedrängt wirkt */
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="home-card">
+
+      <h1>Website Overview</h1>
+
+      <p class="untertitel">
+        Choose which page you want to visit.
+      </p>
+
+      <div class="seiten-grid">
+
+        <a href="Introduction.html" class="seiten-link">
+          <div class="icon">👤</div>
+          <h2>Introduction</h2>
+          <p>Personal introduction and basic information.</p>
+        </a>
+
+        <a href="Hobbys.html" class="seiten-link">
+          <div class="icon">🎮</div>
+          <h2>Hobbys</h2>
+          <p>My hobbies and free time activities.</p>
+        </a>
+
+        <a href="CV.html" class="seiten-link">
+          <div class="icon">📄</div>
+          <h2>CV</h2>
+          <p>My experience, education and internships.</p>
+        </a>
+
+        <a href="Training.html" class="seiten-link">
+          <div class="icon">💼</div>
+          <h2>Training</h2>
+          <p>Why I am a good candidate for WIRmachenDRUCK GmbH.</p>
+        </a>
+
+      </div>
+
+<div class="ki-hinweis">
+  <strong>Hinweis:</strong> Diese Website wurde mit Hilfe von KI erstellt.
+</div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
