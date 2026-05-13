@@ -1,0 +1,258 @@
+
+
+
+
+Habe jetzt alles auf Deutsch übersetzt, weil es für mich einfacher ist
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Meine Hobbys</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;                                                    /* Schriftart */
+      background: radial-gradient(circle at top, #14213d, #000814 70%);             /* Neuer Hintergrund */
+      color: white;                                                                   /* Textfarbe */
+      margin: 0;                                                                        /* Kein Außenabstand */
+      padding: 0;                                                                       /* Kein Innenabstand */
+    }
+
+    .container {                                              /* Zentrierter Container für den gesamten Inhalt */
+      min-height: 100vh;                                      /* Volle Bildschirmhöhe */
+      display: flex;                                          /* Flexbox */
+      justify-content: center;                                /* Inhalt mittig */
+      align-items: center;                                    /* Inhalt mittig */
+      padding: 40px;                                          /* Abstand zum Rand */
+      box-sizing: border-box;                                 /* Padding zählt zur Breite */
+    }
+
+    .seite {
+      max-width: 1000px;                                      /* Maximale Breite */
+      width: 100%;                                            /* Volle Breite bis max-width */
+    }
+
+    .kopfbereich {
+      text-align: left;                                       /* Text links statt mittig */
+      margin-bottom: 40px;                                    /* Abstand nach unten */
+    }
+
+    .kleiner-text {
+      color: #00bfff;                                       /* Blaue Akzentfarbe */
+      font-size: 18px;
+      letter-spacing: 3px;                                    /* Abstand zwischen Buchstaben */
+      text-transform: uppercase;                              /* Alles groß */
+      margin-bottom: 10px;
+    }
+
+    h1 {                                                      /* Haupttitel */
+      font-size: 60px;
+      margin: 0;
+      color: white;
+    }
+
+    .untertitel {
+      font-size: 20px;
+      color: #cfcfcf;
+      max-width: 600px;
+      line-height: 1.6;
+      margin-top: 15px;
+    }
+
+    .hobby-boxen {
+      display: grid;                                          /* Grid-Layout */
+      grid-template-columns: repeat(3, 1fr);                  /* 3 Spalten */
+      gap: 25px;                                              /* Abstand zwischen Boxen */
+    }
+
+    .hobby {
+      background: rgba(255, 255, 255, 0.06);                /* Dunkle Glas-Box */
+      border: 1px solid rgba(255, 255, 255, 0.12);          /* Dezenter Rand */
+      border-radius: 25px;                                    /* Runde Ecken */
+      padding: 30px;                                          /* Innenabstand */
+      min-height: 230px;                                      /* Gleiche Höhe */
+      transition: 0.3s;                                       /* Weicher Hover-Effekt */
+      position: relative;                                     /* Für die Nummer */
+      overflow: hidden;                                       /* Nichts geht aus der Box raus */
+    }
+
+    .hobby:hover {
+      transform: translateY(-10px);                           /* Box bewegt sich hoch */
+      background: rgba(0, 191, 255, 0.13);                  /* Blauer Hover */
+      border-color: #00bfff;                                /* Blauer Rand beim Hover */
+      box-shadow: 0 0 25px rgba(0, 191, 255, 0.35);         /* Leuchten */
+    }
+
+    .nummer {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 50px;
+      font-weight: bold;
+      color: rgba(255, 255, 255, 0.08);                      /* Große transparente Zahl */
+    }
+
+    .icon {
+      font-size: 45px;
+      margin-bottom: 20px;
+    }
+
+    .hobby h2 {
+      color: #00bfff;
+      font-size: 28px;
+      margin: 0 0 15px 0;
+    }
+
+    .hobby p {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #e6e6e6;
+      margin-bottom: 20px;
+    }
+
+    .hobby-link {
+      display: inline-block;
+      margin-top: 10px;
+      color: #000814;
+      background-color: #00bfff;
+      text-decoration: none;
+      padding: 11px 18px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .hobby-link:hover {
+      background-color: white;
+      transform: scale(1.05);
+    }
+
+    .button-unten-links {
+      position: fixed;
+      left: 30px;
+      bottom: 30px;
+
+      background-color: transparent;
+      color: white;
+      text-decoration: none;
+
+      padding: 14px 28px;
+      font-size: 18px;
+      border-radius: 30px;
+      border: 2px solid #00bfff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .button-unten-links:hover {
+      background-color: #00bfff;
+      color: #000814;
+      transform: scale(1.05);                                 /* Leicht vergrößern beim Hover */
+    }
+
+.button-unten-rechts {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+
+  background-color: transparent;
+  color: white;
+  text-decoration: none;
+
+  padding: 14px 28px;
+  font-size: 18px;
+  border-radius: 30px;
+  border: 2px solid #00bfff;
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.button-unten-rechts:hover {
+  background-color: #00bfff;
+  color: #000814;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.6);
+}
+
+    @media (max-width: 850px) {                               /* Tablet */
+      .hobby-boxen {
+        grid-template-columns: 1fr 1fr;                       /* 2 Spalten statt 3 */
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+    }
+
+    @media (max-width: 600px) {                               /* Handy */
+      .hobby-boxen {
+        grid-template-columns: 1fr;                           /* 1 Spalte statt 2 */
+      }
+
+      .kopfbereich {
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      .button-unten-links {
+        left: 20px;
+        bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="seite">
+
+      <div class="kopfbereich">
+        <p class="kleiner-text">About Me</p>
+        <h1>My Hobbys</h1>
+        <p class="untertitel">Here are some things I like to do in my free time.</p>
+      </div>
+
+      <div class="hobby-boxen">
+
+        <div class="hobby">
+          <div class="nummer">01</div>
+          <div class="icon">🎮</div>
+          <h2>Gaming</h2>
+          <p>I like playing video games in my free time.
+            My favorite games are Rainbow Six Siege, Rocket League, Arena Breakout and Factorio
+          </p>
+        </div>
+
+        <div class="hobby">
+          <div class="nummer">02</div>
+          <div class="icon">🥊</div>
+          <h2>Sport</h2>
+          <p>I enjoy staying active and improving myself. I like to go jogging, do basic bodyweight exercises and boxing.</p>
+
+          <a href="https://kampfsport-bars.de" class="hobby-link" target="_blank">My old Club</a>
+        </div>
+
+        <div class="hobby">
+          <div class="nummer">03</div>
+          <div class="icon">👥</div>
+          <h2>Friends</h2>
+          <p>I like spending time with my friends and having fun.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <a href="Introduction.html" class="button-unten-links">Back</a>
+  <a href="CV.html" class="button-unten-rechts">Next Page</a>
+</body>
+</html>
